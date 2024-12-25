@@ -17,7 +17,7 @@ Dynamic GET Route for Redirection: Redirects users from the shortened URL to the
 Dynamic GET Route for Analytics: Retrieves analytics such as the number of clicks and visit timestamps for a given shortened URL.
 Additional GET Route: Fetches all data from the database (for debugging or administrative purposes).
 
-# request body
+**request body**
 
 
 {
@@ -25,33 +25,33 @@ Additional GET Route: Fetches all data from the database (for debugging or admin
 }
 
 
-# response body
+**response body**
 
 {
    "id": "2xv5e"
 }
 
 
-# 2. GET /url/:shortID
+ **2. GET /url/:shortID**
 
 **Description**: Redirects to the original URL associated with the shortID.
 **Example**: Accessing http://localhost:8561/url/shortID redirects to https://www.example.com.
 
 
-# 3. GET /url/:shortID/analytics
+ **3. GET /url/:shortID/analytics**
 
 **Description**: Provides analytics for a specific shortID, including the number of clicks and timestamps.
 
-# 4. GET /url
+**4. GET /url**
 
 **Description**: Retrieves all data from the database (for debugging or administrative purposes).
 
-# Technologies Used
+**Technologies Used**
 
 **Backend**: Node.js, Express.js
 **Database**: MongoDB
 **Libraries**: shortid
 
 
-# author
+ **author**
 **Developed by** Akash Chincholkar
