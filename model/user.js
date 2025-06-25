@@ -4,19 +4,24 @@ const userSchema= mongoose.Schema({
 ogLink:{ 
     type:String,
     required:true,
-    unique:true,
+    
 
 },
 shortLink:{
        type:String,
        required:true,
+       
 },
 
     visitHistory:[{
         timestamp:{type:Number},
     }],
-},
+     createdBy:{
+       type:mongoose.Schema.Types.ObjectId,
+       ref:"clients",}
+}, 
 {timestamps:true},
+  
 
 
 )

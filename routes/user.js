@@ -1,12 +1,11 @@
 const express= require("express");
-const{handlepostreq,dummyreq,goToWebsite,totalclicks}=require('../controllers/user')
+const{handlepostreq,goToWebsite,totalclicks,}=require('../controllers/user')
 
 const router=express.Router();
 
 router
 .route("/")
-.post(handlepostreq)
-.get(dummyreq);
+.post(handlepostreq);
 
 router.get("/:shortID",goToWebsite);
 

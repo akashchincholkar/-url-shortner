@@ -7,20 +7,31 @@ async function handlepostreq(req, res) {
    console.log(body);
    if (!body.ogLink) return res.status(404).json("wtf is happening");
 
-   const shortID = shortid();
+
+   // Check if the shortID already exists
+   let shortID;
+   const existingUser = await USer.findOne({ oglink:body.oglink });
+   if( existingUser){
+    shortID=existingUser?.shortLink;
+   }
+   
+   else{
+          shortID = shortid();
    await USer.create({
       shortLink: shortID,
       ogLink: body.ogLink,
+         
+      createdBy: req.client._id
 
    })
-   return res.json({ id: shortID });
-
+}
+   return res.render("home",{
+      id:shortID,
+      
+   })
 }
 
-async function dummyreq(req, res) {
-   const result = await USer.find();
-   return res.json(result);
-}
+
 
 async function goToWebsite(req,res){
    const shortid = req.params.shortID
@@ -43,6 +54,8 @@ async function totalclicks(req,res){
    });
 }
 
+
+
 module.exports = {
-   handlepostreq, dummyreq,goToWebsite,totalclicks,
+   handlepostreq, goToWebsite,totalclicks,
 };
