@@ -19,6 +19,9 @@ async function checkAuth(req, res, next) {
 }
 async function justAuthCheck(req, res, next) {
     const sessionId = req.cookies?.sessionId; 
+    if (!sessionId) {
+        return res.redirect("/login");// If no sessionId, just continue to the next middleware
+    }
     const client = getClient(sessionId);
     req.client = client; 
     next();
