@@ -14,7 +14,7 @@ const app = express();
 
 connectMongo(process.env.MONGO_URI).then(()=>{console.log("mongodb successfully connected")});
 
-const port =8561;
+const port = process.env.PORT || 3000;
 
 app.set("view engine","ejs");
 app.set("views", path.join(__dirname, "views"));
