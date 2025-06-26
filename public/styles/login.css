@@ -66,3 +66,13 @@ button {
 button:hover {
   background-color: #aa8e89;
 }
+
+p:last-of-type {
+  text-align: center;
+  color: #f2f2f2;
+  margin-top: 20px;
+  font-size: 18px;
+}
+p:last-of-type a {
+  color: #00bfff;
+}

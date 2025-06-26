@@ -7,13 +7,12 @@ const clientRoute=require("./routes/client");
 const cookieParser = require("cookie-parser");
 const {checkAuth,justAuthCheck,} = require("./middleware/checkauth");
 
-
-
+require("dotenv").config();
 const app = express();
 
 
 
-connectMongo("mongodb://localhost:27017/short-url").then(()=>{console.log("mongodb successfully connected")});
+connectMongo(process.env.MONGO_URI).then(()=>{console.log("mongodb successfully connected")});
 
 const port =8561;
 

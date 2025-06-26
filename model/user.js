@@ -10,6 +10,7 @@ ogLink:{
 shortLink:{
        type:String,
        required:true,
+         unique:true,
        
 },
 

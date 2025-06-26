@@ -9,14 +9,16 @@ async function handlepostreq(req, res) {
 
 
    // Check if the shortID already exists
-   let shortID;
-   const existingUser = await USer.findOne({ oglink:body.oglink });
+   let shortID= shortid();
+   const existingUser = await USer.findOne({ ogLink:body.ogLink });
    if( existingUser){
     shortID=existingUser?.shortLink;
    }
    
    else{
+      while (await USer.findOne({ shortLink: shortID })){
           shortID = shortid();
+      }
    await USer.create({
       shortLink: shortID,
       ogLink: body.ogLink,
